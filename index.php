@@ -14,7 +14,7 @@
     <body>
         <?php include('resources/navbar.php');?>
         <div class="container px-sm-0">
-            <div id="announcements" class="row my-5 border-bottom">
+            <div id="announcements" class="row mt-5 border-bottom">
                 <div class="col">
                     <?php
                         include("cms/announcement_controller.php");
@@ -24,7 +24,7 @@
                 <p id="announce-index"></p>
             </div>
             <div class="row pb-5">
-                <div id="welcome" class="col-lg mr-lg-5 pr-lg-5">
+                <div id="welcome" class="col-lg mr-lg-5 pr-lg-5 pt-5">
                     <h2>Welcome to B&D Deli.</h1>
                     <p class="welcome-blurb">
                         <?php
