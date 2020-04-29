@@ -44,3 +44,8 @@ CREATE TABLE cms_data (
     sectionText text NOT NULL,
     PRIMARY KEY (id)
 );
+
+INSERT INTO cms_data (sectionName, sectionText) VALUES
+('about', 'Owner born and raised in Plainview, serving the community the finest and freshest ingredients for over 30 years. The homemade potato macaroni and cole slaw are well known throughout the community.'),
+('catering', 'Stop in the deli and see Brian for all of your catering needs.  Call (516) 681-1670 and ask for Brian for more info.'),
+('hours', 'Monday-Friday: 7am - 7pm\nSaturday: 7am - 4pm\nSunday: 8am - 3pm');
