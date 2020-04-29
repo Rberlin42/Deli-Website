@@ -1,0 +1,20 @@
+.delete:hover {
+    cursor: pointer;
+    color: red;
+}
+.drag-handle {
+    cursor: move;
+}
+
+.ghost {
+    background-color: rgba(44, 125, 247, .25) !important;
+    border: none !important;
+}
+.ghost * {
+    visibility: hidden;
+}
+
+#announcements {
+    max-height: calc(100vh - 274px);
+    overflow: auto;
+}

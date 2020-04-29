@@ -1,0 +1,40 @@
+#editor {
+  height: calc(100vh - 176px);
+  max-height: calc(100vh - 176px);
+}
+
+.items {
+  display: none !important;
+}
+.selected-items {
+  display: block !important;
+}
+
+#sections-list, .items {
+  max-height: calc(100vh - 320px);
+  overflow: auto;
+}
+
+#sections-list .list-group-item:hover {
+  cursor: pointer;
+}
+
+#sections-list .list-group-item:first-of-type {
+  border-top: none;
+}
+.delete:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.drag-handle {
+  cursor: move;
+}
+
+.ghost {
+  background-color: rgba(44, 125, 247, .25) !important;
+  border: none !important;
+}
+.ghost * {
+  visibility: hidden;
+}
