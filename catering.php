@@ -37,7 +37,7 @@
 
         <footer class="bg-dark" id="footer">
             <div class="container">     
-                <p class="text-center my-2">Copyright © 2019 B&D Deli</p>
+                <p class="text-center my-2">Copyright © 2020 B&D Deli</p>
                 <p class="text-center my-2"><a href="login.php">Admin Login</a></p>
             </div>
         </footer>

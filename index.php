@@ -25,7 +25,7 @@
             </div>
             <div class="row pb-5">
                 <div id="welcome" class="col-lg mr-lg-5 pr-lg-5 pt-5">
-                    <h2>Welcome to B&D Deli.</h1>
+                    <h2>Welcome to B&D Deli</h1>
                     <p class="welcome-blurb">
                         <?php
                             include("cms/other_controller.php");
@@ -67,7 +67,7 @@
         </div>
         <footer class="bg-dark" id="footer">
             <div class="container">     
-                <p class="text-center my-2">Copyright © 2019 B&D Deli</p>
+                <p class="text-center my-2">Copyright © 2020 B&D Deli</p>
                 <p class="text-center my-2"><a href="login.php">Admin Login</a></p>
             </div>
         </footer>
