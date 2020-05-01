@@ -1,0 +1,26 @@
+/announcements
+    GET: return all announcements
+    POST: add announcements
+    DELETE{id}: delete an id
+    PUT{id}: update an id
+
+/contact
+    GET: return all active emails (or archived)
+    POST: add new email
+    DELETE{id}: archive an email
+
+/other
+    GET{id}: get other item
+    PUT{id}: update other item
+
+/menuitem
+    GET{type}: get menu items of type (nested section json)
+    POST: add new menu item
+    PUT{id}: update menu item
+    DELETE{id}: remove a menu item
+
+/menusection
+    POST: add a new section
+    PUT{id}: update a section
+    DELETE{id}: delete a section and all of its items
+
