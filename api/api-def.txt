@@ -1,8 +1,15 @@
 /announcements
     GET: return all announcements
-    POST: add announcements
-    DELETE{id}: delete an id
-    PUT{id}: update an id
+    POST: Update announcements
+
+    Update schema:
+    {
+        update: [{id: 9, position: 1, title: 'test', description: ''}]
+        add: [{position: 1, title: 'test', description: ''}]
+        delete: [1, 2, 4, ...]
+    }
+
+    return new ids
 
 /contact
     GET: return all active emails (or archived)
