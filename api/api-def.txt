@@ -14,6 +14,7 @@
 /contact
     GET: return all active emails (or archived)
     POST: add new email
+        {name: "Ryan", email: "berlir@rpi.edu", subject: "Test", message: "test test test"}
     DELETE{id}: archive an email
 
 /other

@@ -26,8 +26,15 @@
      */
     function getAnnouncements($db){
         $stmt = $db->prepare('SELECT * FROM announcements ORDER BY position;');
-        $stmt->execute();
-        echo json_encode($stmt->fetchAll());
+
+        try {
+            $stmt->execute();
+            echo json_encode($stmt->fetchAll());
+        }
+        catch (Exception $e) {
+            http_response_code(500);
+            echo $e->getMessage();
+        }
     }
 
     /**
