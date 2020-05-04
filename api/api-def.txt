@@ -19,7 +19,7 @@
 
 /other
     GET{id}: get other item
-    PUT{id}: update other item
+    PUT: update other item [{id: 1, info: "test test test"}, ...]
 
 /menuitem
     GET{type}: get menu items of type (nested section json)
