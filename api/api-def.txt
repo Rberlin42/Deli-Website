@@ -8,7 +8,6 @@
         add: [{position: 1, title: 'test', description: ''}]
         delete: [1, 2, 4, ...]
     }
-
     return new ids
 
 /contact
@@ -21,14 +20,34 @@
     GET{id}: get other item
     PUT: update other item [{id: 1, info: "test test test"}, ...]
 
-/menuitem
-    GET{type}: get menu items of type (nested section json)
-    POST: add new menu item
-    PUT{id}: update menu item
-    DELETE{id}: remove a menu item
+/menu
+    GET{type}: get menu items of type
 
-/menusection
-    POST: add a new section
-    PUT{id}: update a section
-    DELETE{id}: delete a section and all of its items
+    Get schema:
+    [
+        {sectionId: 1, 
+        sectionName: 'wraps', 
+        sectionPosition: 2, 
+        items: [
+            {id: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00', position: 3}, ...
+        ]}, ...
+    ]
+
+    POSTd: Update menu
+
+    Update schema:
+    {
+        deleteSection: [1, 2, 3 ...]
+        addSection: [{position: 1, name: 'wraps'}, ...]
+        updateSection: [{id: 1, position: 2, name: 'heroes'}, ...]
+        deleteItem: [1, 2,3, 4,5, ...]
+        addItem: [{sectionId: 1, position: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00'}, ...]
+        updateItem: [{id: 2, position: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00'}, ...]
+    }
+    return schema:
+    {
+        newSections: [2, 4, 6, ...]
+        newItems: [3, 5, 6, 7]
+    }
+
 
