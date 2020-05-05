@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="resources/bd.css"/>
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="/"><img src="/resources/images/bdlogo.png" alt="B&D Logo" height="75"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav d-flex w-100">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="menu.html">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="catering.html">Catering</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold active" href="contact_us.html">Contact Us</a>
+                </li>   
+                <li class="nav-item align-self-end ml-auto">
+                    <a class='text-white' href='https://www.facebook.com/brians.deli'><i class='fab fa-facebook-square fa-lg'></i> Follow us on Facebook!</a>
+                </li>
+            </ul>
+        </div> 
+    </nav>
+
+    <div id="fail-alert" class="alert alert-danger" role="alert" style="display:none;">
+        We're sorry, something went wrong please try again later!
+    </div> 
+    <div id="success-alert" class="alert alert-success" role="alert" style="display:none;">
+        Message succesfully sent, we'll get back to you as soon as possible!
+    </div> 
+
+    <div class="container">
+        <form id="contact_us" method="post" action="api/contact.php">
+            <h3 class="text-center">Contact Us</h3>
+            <h6 class="text-center">Write us a message or give us a call at (516) 681-1670</h5>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required/>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required/>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark" id="footer">
+        <div class="container">     
+            <p class="text-center my-2">Copyright © 2020 B&D Deli</p>
+            <p class="text-center my-2"><a href="login.php">Admin Login</a></p>
+        </div>
+    </footer>
+    
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        if (window.location.search.includes("Fail")) {
+            document.querySelector("#fail-alert").style.cssText = "display: block;";
+        }
+        if (window.location.search.includes("Success")) {
+            document.querySelector("#success-alert").style.cssText = "display: block;";
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/b795fdd398.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -44,16 +44,22 @@
      * Add a new email to the db
      */
     function addEmail($db) {
-        $email = json_decode(file_get_contents('php://input'), true);
+        if(!(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message']))) {
+            http_response_code(400);
+            header("Location: /contact_us.html?type=Fail");
+            return;
+        }
 
         $stmt = $db->prepare('INSERT INTO contact_us (name, email, subject, message) VALUES (?, ?, ?, ?);');
         try {
-            $stmt->execute([$email['name'], $email['email'], $email['subject'], $email['message']]);
+            $stmt->execute([$_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message']]);
         }
         catch (Exception $e) {
             http_response_code(500);
             echo $e->getMessage();
+            header("Location: /contact_us.html?type=Fail");
         }
+        header("Location: /contact_us.html?type=Success");
     }
 
     /**
