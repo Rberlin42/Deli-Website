@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>B&D Deli</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="resources/bd.css"/>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="/"><img src="/resources/images/bdlogo.png" alt="B&D Logo" height="75"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav d-flex w-100">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold active" href="catering.html">Catering</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="contact_us.html">Contact Us</a>
+                    </li>   
+                    <li class="nav-item align-self-end ml-auto">
+                        <a class='text-white' href='https://www.facebook.com/brians.deli'><i class='fab fa-facebook-square fa-lg'></i> Follow us on Facebook!</a>
+                    </li>
+                </ul>
+            </div> 
+        </nav>
+
+        <div class="container mt-5 p-0">
+            <div class="col">
+                <h2>B&D Catering</h2>
+                <p id='catering-info'></p>
+            </div>
+            <hr/>
+
+            <div id="cater-hold" class="col mt-5 p-0">
+                <div id="container p-0">
+                    <div>
+                        <h2 class="menu_header text-center text-sm-left mb-5">Catering Menu</h2>
+                        <div id="catering" class="container p-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-dark" id="footer">
+            <div class="container">     
+                <p class="text-center my-2">Copyright © 2020 B&D Deli</p>
+                <p class="text-center my-2"><a href="login.php">Admin Login</a></p>
+            </div>
+        </footer>
+    </body>
+    
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/scripts/catering.js"></script>
+    <script src="https://kit.fontawesome.com/b795fdd398.js" crossorigin="anonymous"></script>
+</html>
