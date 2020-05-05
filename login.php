@@ -2,7 +2,7 @@
     if(isset($_COOKIE['CMSCODE'])) {
         if(password_verify(getenv('CMSCODE'), $_COOKIE['CMSCODE'])) {
             setcookie("CMSCODE", password_hash(getenv('CMSCODE'), PASSWORD_DEFAULT),  time() + 86400, "/");
-            header("Location: /cms/menu.php");
+            header("Location: /cms/menu");
         }
     }
 ?>
@@ -25,7 +25,7 @@
     </div> 
     <div class="container-fluid d-flex flex-column flex-fill align-items-center justify-content-center">
         <div class="card bg-dark">
-            <form id="cmslogin" method="post" action="/backend-controllers/cms_login_controller.php">
+            <form id="cmslogin" method="post" action="/api/cms_login_controller.php">
                 <div class="form-group">
                     <label for="cmscode" style="color:white;">Enter the CMS Code</label>
                     <input type="password" class="form-control" id="cmscode" placeholder="CMS Code" name="cmscode">

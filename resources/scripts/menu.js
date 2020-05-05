@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $.get(window.location.origin + '/api/menu.php', {'type': 'regular'}, fillMenu, 'json');
+    $.get(window.location.origin + '/api/menu', {'type': 'regular'}, fillMenu, 'json');
 });
 
 /**

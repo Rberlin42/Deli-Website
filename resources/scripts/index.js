@@ -2,13 +2,13 @@ const apiUrl = window.location.origin + '/api/';
 
 $(document).ready(function(){
     // get announcements
-    $.get(apiUrl + 'announcement.php', insertAnnouncements, "json");
+    $.get(apiUrl + 'announcement', insertAnnouncements, "json");
     // get welcome blurb
-    $.get(apiUrl + 'other.php', {'id': 1}, insertWelcomeMessage, "json");
+    $.get(apiUrl + 'other', {'id': 1}, insertWelcomeMessage, "json");
     // get hours
-    $.get(apiUrl + 'other.php', {'id': 3}, insertHours, "json");
+    $.get(apiUrl + 'other', {'id': 3}, insertHours, "json");
     // get specials
-    $.get(apiUrl + 'menu.php', {'type': 'special'}, insertSpecials, "json");
+    $.get(apiUrl + 'menu', {'type': 'special'}, insertSpecials, "json");
 });
 
 /**

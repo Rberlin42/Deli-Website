@@ -1,9 +1,9 @@
 const apiUrl = window.location.origin + '/api/';
 $(document).ready(function() {
     // get catering info
-    $.get(apiUrl + 'other.php', {'id': 2}, insertInfo, 'json');
+    $.get(apiUrl + 'other', {'id': 2}, insertInfo, 'json');
     // get catering menu
-    $.get(apiUrl + 'menu.php', {'type': 'catering'}, insertMenu, 'json');
+    $.get(apiUrl + 'menu', {'type': 'catering'}, insertMenu, 'json');
 });
 
 /**
