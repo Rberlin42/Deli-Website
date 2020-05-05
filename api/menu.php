@@ -33,7 +33,7 @@
         $type = $_GET['type'];
         
         // get the sections first
-        $stmt = $db->prepare('SELECT * FROM menu_sections WHERE type = ?');
+        $stmt = $db->prepare('SELECT * FROM menu_sections WHERE type = ? ORDER BY position');
         try {
             $stmt->execute([$type]);
         }
@@ -58,7 +58,7 @@
      * formatted as per api-def.txt
      */
     function getMenuItems($db, $sectionID) {
-        $stmt = $db->prepare('SELECT * FROM menu_items WHERE sectionID = ?');
+        $stmt = $db->prepare('SELECT * FROM menu_items WHERE sectionID = ? ORDER BY position');
         try {
             $stmt->execute([$sectionID]);
         }
