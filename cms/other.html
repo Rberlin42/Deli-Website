@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+ <head>
+ 	<title>B&D CMS - Other</title>
+    <link rel="stylesheet" type="text/css" href="/cms/resources/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+ </head>
+
+ <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/" target="_blank">
+			<img src="/resources/images/bdlogo.png" width="75" height="75" alt="logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="menu">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="catering">Catering</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="specials">Specials</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="announcements">Announcements</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact_us">Contact Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="other">Other</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container-fluid my-5 px-5" id="other-container">
+		<div class="row">
+			<div class="col-md mb-5">
+				<h2>About</h2>
+				<textarea id="about" class="form-control w-100" placeholder="About..." rows="5"></textarea>
+			</div>
+			<div class ="col-md mb-5">
+				<h2>Hours</h2>
+				<textarea id="hours" class="form-control w-100" placeholder="Deli hours..." rows="5"></textarea>
+			</div>
+			<div class ="col-md mb-5">
+				<h2>Catering Info</h2>
+				<textarea id="catering" class="form-control w-100" placeholder="Catering info..." rows="5"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center align-items-center" id="save-bar">
+		<button class="btn btn-success w-25 h-75" id="save" onclick="save()">Save</button>
+		<div class="alert alert-success" id="save-success" role="alert">
+		Saved Successfully <i class="fas fa-check"></i>
+		</div>
+		<div class="alert alert-danger" id="save-fail" role="alert">
+		Save Failed <i class="fas fa-times"></i>
+		</div>
+	</div>
+
+	<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="/cms/resources/scripts/savebar.js"></script>
+	<script src="/cms/resources/scripts/other-script.js"></script>
+	<script src="https://kit.fontawesome.com/b795fdd398.js" crossorigin="anonymous"></script>
+ </body>
+</html>
