@@ -105,10 +105,11 @@ function save() {
     $.ajax({
         url: apiUrl + 'announcement',
         type: 'POST',
-        success: showSuccess,
+        success: (ids) => {addNewIds(ids); showSuccess();},
         error: showError,
         complete: stopSpinner,
-        data: JSON.stringify(updates)
+        data: JSON.stringify(updates),
+        dataType: 'json'
     });
 
     deletes = [];
@@ -124,4 +125,16 @@ function changed(a, pos) {
     const old = oldAnnouncements[id];
 
     return (title !== old['title']) || (desc !== old['description']) || (pos !== parseInt(old['position']));
+}
+
+/**
+ * Add the new ids
+ */
+function addNewIds(ids) {
+    $('.announcement').each((i, a) => {
+        if(a.id === '') {
+            id = ids.shift();
+            a.id = 'announcement_' + id;
+        }
+    });
 }
