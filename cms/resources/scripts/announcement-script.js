@@ -44,7 +44,8 @@ function fillAnnouncements(announcements) {
  */
 function deleteAnnouncement(e) {
     const container = $(e.parentElement);
-    deletes.push(parseInt(container.attr('id').split('_')[1]));
+    if(container.attr('id'))
+        deletes.push(parseInt(container.attr('id').split('_')[1]));
     container.remove();
 }
 
