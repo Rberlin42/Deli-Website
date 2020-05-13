@@ -90,7 +90,7 @@
         $sectionIds = addSections($input['addSection'], $db);
         updateSections($input['updateSection'], $db);
         deleteItems($input['deleteItem'], $db);
-        $itemIds = addItems($input['addItem'], $db);
+        $itemIds = addItems($input['addItem'], $db, $sectionIds);
         updateItems($input['updateItem'], $db);
 
         echo json_encode(array('newSections'=>$sectionIds, 'newItems'=>$itemIds));
@@ -212,14 +212,18 @@
      * Add new menu items
      * Return new ids
      */
-    function addItems($items, $db) {
+    function addItems($items, $db, $newSectionIds) {
         if(count($items) == 0)
             return [];
 
         // build the query
         $query = 'INSERT INTO menu_items (name, description, sectionID, price, position) VALUES ';
         foreach($items as $i) {
-            $query .= '("' . $i['name'] . '","' . $i['description'] . '",' . $i['sectionId'] . ',"' . $i['price'] . '",' . $i['position'] . '),';
+            $sid = $i['sectionId'];
+            if($sid == -1) {
+                $sid = $newSectionIds[$i['newID']];
+            }
+            $query .= '("' . $i['name'] . '","' . $i['description'] . '",' . $sid . ',"' . $i['price'] . '",' . $i['position'] . '),';
         }
         $query = rtrim($query, ',') . ';';
 

@@ -41,7 +41,7 @@
         addSection: [{position: 1, name: 'wraps'}, ...]
         updateSection: [{id: 1, position: 2, name: 'heroes'}, ...]
         deleteItem: [1, 2,3, 4,5, ...]
-        addItem: [{sectionId: 1, position: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00'}, ...]
+        addItem: [{sectionId: -1, newID=1 position: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00'}, ...]
         updateItem: [{id: 2, position: 1, name: 'Carly wrap', description: 'test test test', price: '$1.00'}, ...]
     }
     return schema:
