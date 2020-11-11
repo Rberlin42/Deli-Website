@@ -227,7 +227,7 @@ function save() {
   $.ajax({
     url: apiUrl + 'menu?type=' + TYPE,
     type: 'POST',
-    success: (ids) => {addNewIds(ids); showSuccess();},
+    success: (ids) => {addNewIds(ids); updateModel(); showSuccess();},
     error: showError,
     complete: stopSpinner,
     data: JSON.stringify(updates),
@@ -328,6 +328,42 @@ function addNewIds(ids) {
         const itemId = ids['newItems'].shift();
         item.id = 'item_' + itemId;
       }
-    })
+    });
   });
+}
+
+/**
+ * Update the oldMenu object after saving
+ */
+function updateModel() {
+  const menu = {}
+
+  // loop through each section
+  $('#sections-list > .list-group-item').each((i, section) => {
+    section = $(section);
+    const sec = {
+      'sectionId': section.attr('id').split('_')[1],
+      'sectionName': section.find('.section-name').val(),
+      'sectionPosition': i.toString(),
+      'items': {}
+    };
+
+    // loop through each item
+    $(`.items[data-section-id = ${section.attr('data-section-id')}] .item`).each((j, item) => {
+      item = $(item);
+      const it = {
+        'id': item.attr('id').split('_')[1],
+        'name': item.find('.item-name').val(),
+        'description': item.find('.item-description').val(),
+        'price': item.find('.item-price').val(),
+        'position': j.toString()
+      };
+
+      sec['items'][it['id']] = it;
+    });
+    
+    menu[sec['sectionId']] = sec;
+  });
+
+  oldMenu = menu;
 }
