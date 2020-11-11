@@ -5,6 +5,7 @@ USE deli;
 CREATE TABLE menu_sections (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(500),
+    description text,
     type varchar(255),
     position int NOT NULL,
     PRIMARY KEY (id)

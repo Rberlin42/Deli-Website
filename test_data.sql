@@ -1,14 +1,14 @@
 INSERT INTO menu_sections VALUES
-(1, 'Wraps', 'regular', 0),
-(2, 'Burgers & Dogs', 'regular', 1),
-(3, 'Toasted Specialty Paninis', 'regular', 2),
-(4, 'House Specialty Heroes', 'catering', 0),
-(5, 'Soup', 'special', 0),
-(6, 'Specialy Sandwiches', 'regular', 3),
-(7, 'Egg Omelettes and Platters', 'regular', 4),
-(8, '3 to 6 Foot Party Heroes', 'catering', 1),
-(9, 'Hot Entrees - Half or Full Trays', 'catering', 2),
-(10, 'Quesadilla', 'special', 1);
+(1, 'Wraps', 'wraps description', 'regular', 0),
+(2, 'Burgers & Dogs', 'burgers description', 'regular', 1),
+(3, 'Toasted Specialty Paninis', 'paninis description', 'regular', 2),
+(4, 'House Specialty Heroes', 'heroes description', 'catering', 0),
+(5, 'Soup', 'soup description', 'special', 0),
+(6, 'Specialy Sandwiches', 'sandwiches description', 'regular', 3),
+(7, 'Egg Omelettes and Platters', 'eggs description', 'regular', 4),
+(8, '3 to 6 Foot Party Heroes', 'party heroes description', 'catering', 1),
+(9, 'Hot Entrees - Half or Full Trays', 'entrees description', 'catering', 2),
+(10, 'Quesadilla', 'quesadilla description', 'special', 1);
 
 INSERT INTO menu_items (name, description, sectionID, price, position) VALUES
 ('California Wrap', 'Grilled portobello mushrooms, roasted peppers, fresh mozzarella & pesto spread', 1, '$6.95', 0),
