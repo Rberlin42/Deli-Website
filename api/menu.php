@@ -47,7 +47,7 @@
         $menu = array();
         foreach($sections as $s) {
             $items = getMenuItems($db, $s['id']);
-            $menu[] = array('sectionId'=>$s['id'], 'sectionName'=>$s['name'], 'sectionPosition'=>$s['position'], 'items'=>$items);
+            $menu[] = array('sectionId'=>$s['id'], 'sectionName'=>$s['name'], 'sectionDescription'=>$s['description'], 'sectionPosition'=>$s['position'], 'items'=>$items);
         }
 
         echo json_encode($menu);
@@ -138,9 +138,9 @@
             return [];
 
         // build the query
-        $query = 'INSERT INTO menu_sections (name, type, position) VALUES ';
+        $query = 'INSERT INTO menu_sections (name, description, type, position) VALUES ';
         foreach($sections as $s) {
-            $query .= '("' . $s['name'] . '","' . $type . '",' . $s['position'] . '),';
+            $query .= '("' . $s['name'] . '","' . $s['description'] . '","' . $type . '",' . $s['position'] . '),';
         }
         $query = rtrim($query, ',') . ';';
 
@@ -167,10 +167,10 @@
             return;
     
         // build the query
-        $queryString = 'UPDATE menu_sections SET name="%s", position=%d WHERE id=%d;';
+        $queryString = 'UPDATE menu_sections SET name="%s", description="%s", position=%d WHERE id=%d;';
         $query = '';
         foreach($sections as $s) {
-            $query .= sprintf($queryString, $s['name'], $s['position'], $s['id']);
+            $query .= sprintf($queryString, $s['name'], $s['description'], $s['position'], $s['id']);
         }
 
         $stmt = $db->prepare($query);
