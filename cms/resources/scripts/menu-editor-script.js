@@ -36,7 +36,13 @@ function fillMenu(menu) {
     `);
 
     // create an item group for this section
-    const itemContainer = $(`<div data-section-id="${i}" class="items list-group"></div>`);
+    const itemContainer = $(`<div data-section-id="${i}" class="items list-group"><h2 class='section-title pl-1'>Items</h2></div>`);
+
+    // add the section description box
+    itemContainer.prepend(`<div class='section-desc-container mb-3'>
+                            <h2 class='section-title pl-1'>Section Info</h2>
+                            <textarea class="section-description form-control w-100" placeholder="Add any information specific to the section here...">${section['sectionDescription']}</textarea>
+                          </div>`);
 
     const items = {}
     section['items'].forEach(item => {
@@ -163,7 +169,13 @@ function addSection() {
   `);
 
   // create items section
-  const itemSection = $(`<div data-section-id="${nextSectionId}" class="items list-group"></div>`);
+  const itemSection = $(`<div data-section-id="${nextSectionId}" class="items list-group">
+                          <div class='section-desc-container mb-3'>
+                            <h2 class='section-title pl-1'>Section Info</h2>
+                            <textarea class="section-description form-control w-100" placeholder="Add any information specific to the section here..."></textarea>
+                          </div>
+                          <h2 class='section-title pl-1'>Items</h2>
+                        </div>`);
   
   // make it sortable
   new Sortable(itemSection[0], {
@@ -244,6 +256,7 @@ function saveNewSection(section, pos, newID) {
   updates['addSection'].push({
     'position': pos,
     'name': section.find('.section-name').val(),
+    'description': $(`.items[data-section-id = ${section.attr('data-section-id')}] .section-description`).val()
   });
 
   $(`.items[data-section-id = ${section.attr('data-section-id')}] .item`).each((pos, item) => {
@@ -265,11 +278,14 @@ function saveSectionUpdates(section, pos) {
   // check for updates on the section
   const id = parseInt(section.attr('id').split('_')[1]);
   const old = oldMenu[id];
-  if(old['sectionName'] !== section.find('.section-name').val() || parseInt(old['sectionPosition']) !== pos) {
+  const name = section.find('.section-name').val();
+  const desc = $(`.items[data-section-id = ${section.attr('data-section-id')}] .section-description`).val();
+  if(old['sectionName'] !== name || parseInt(old['sectionPosition']) !== pos || old['sectionDescription'] != desc) {
     // add to update
     updates['updateSection'].push({
       'id': id,
-      'name': section.find('.section-name').val(),
+      'name': name,
+      'description': desc,
       'position': pos
     });
   }
@@ -344,6 +360,7 @@ function updateModel() {
     const sec = {
       'sectionId': section.attr('id').split('_')[1],
       'sectionName': section.find('.section-name').val(),
+      'sectionDescription': $(`.items[data-section-id = ${section.attr('data-section-id')}] .section-description`).val(),
       'sectionPosition': i.toString(),
       'items': {}
     };
