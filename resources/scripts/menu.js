@@ -19,6 +19,10 @@ function fillMenu(menu) {
                 <h3 class="section-title w-100">${section['sectionName']}</h3>
             </div>
         `);
+
+        // add section description
+        if(section['sectionDescription'] !== '')
+            sectionContainer.append(`<p class="section-description w-100 p-3 font-italic">${section['sectionDescription']}</p>`);
         
         // create each item
         section['items'].forEach(item => {

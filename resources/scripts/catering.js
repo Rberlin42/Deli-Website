@@ -36,6 +36,10 @@ function insertMenu(menu) {
             </div>
         `);
         
+        // add section description
+        if(section['sectionDescription'] !== '')
+            sectionContainer.append(`<p class="section-description w-100 p-3 font-italic">${section['sectionDescription']}</p>`);
+
         // create each item
         section['items'].forEach(item => {
             const itemContainer = $(`
